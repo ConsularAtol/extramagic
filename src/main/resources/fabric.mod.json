@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "extramagic",
+  "version": "${version}",
+
+  "name": "Extra Magic",
+  "description": "Adds more potions and enchantments",
+  "authors": [
+    "Consular"
+  ],
+
+  "license": "CC0-1.0",
+  "icon": "assets/extramagic/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "consular.extramagic.ExtraMagic"
+    ]
+  },
+  "mixins": [
+    "extramagic.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.7",
+    "fabric": "*",
+    "minecraft": "1.19.x",
+    "java": ">=17"
+  }
+}
