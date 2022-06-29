@@ -4,11 +4,12 @@
   "package": "consular.extramagic.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-  ],
-  "client": [
-    "BrewingRecipeRegistryAccessor",
+    "BrewingRecipeRegistryMixin",
     "HoeItemMixin",
     "BlockMixin"
+  ],
+  "client": [
+
   ],
   "injectors": {
     "defaultRequire": 1

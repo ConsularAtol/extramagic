@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 import consular.extramagic.ExtraMagic;
-import consular.extramagic.mixin.BrewingRecipeRegistryAccessor;
+import consular.extramagic.mixin.BrewingRecipeRegistryMixin;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -59,12 +59,12 @@ public class ModPotions {
 		Optional<Potion> outLong = Registry.POTION.getOrEmpty(new Identifier(potionOutId.getNamespace(), "long_" + potionOutId.getPath()));
 		Optional<Potion> outStrong = Registry.POTION.getOrEmpty(new Identifier(potionOutId.getNamespace(), "strong_" + potionOutId.getPath()));
 		if(outLong.isPresent() && inLong.isPresent()) {
-			BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(inLong.get(), ingredient, outLong.get());
+			BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(inLong.get(), ingredient, outLong.get());
 		}
 		if(outStrong.isPresent() && inStrong.isPresent()) {
-			BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(inStrong.get(), ingredient, outStrong.get());
+			BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(inStrong.get(), ingredient, outStrong.get());
 		}
-		BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(in, ingredient, result);
+		BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(in, ingredient, result);
 	}
 	
 	private static void variantRecipes(Potion potion) {
@@ -72,10 +72,10 @@ public class ModPotions {
 		Optional<Potion> lengthy = Registry.POTION.getOrEmpty(new Identifier(id.getNamespace(), "long_" + id.getPath()));
 		Optional<Potion> strong = Registry.POTION.getOrEmpty(new Identifier(id.getNamespace(), "strong_" + id.getPath()));
 		if(lengthy.isPresent()) {
-			BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(potion, Items.REDSTONE, lengthy.get());
+			BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(potion, Items.REDSTONE, lengthy.get());
 		}
 		if(strong.isPresent()) {
-			BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(potion, Items.GLOWSTONE_DUST, strong.get());
+			BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(potion, Items.GLOWSTONE_DUST, strong.get());
 		}
 	}
 	

@@ -8,7 +8,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 
 @Mixin(BrewingRecipeRegistry.class)
-public interface BrewingRecipeRegistryAccessor {
-    @Invoker
-	public static void invokeRegisterPotionRecipe(Potion in, Item ingredient, Potion result) {}
+public interface BrewingRecipeRegistryMixin {
+    @Invoker("registerPotionRecipe")
+    static void invokeRegisterPotionRecipe(Potion input, Item item, Potion output) {
+        throw new AssertionError();
+    }
 }
